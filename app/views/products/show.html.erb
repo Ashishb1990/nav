@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+
+
+<% Question.where(product_id: @product.id).each do |question| %>
+<li> <%= question.title %> </li>
+<li> <%= question.ans %> </li>
+<%end%>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
